@@ -1,0 +1,170 @@
+body {
+    background: #000 url('/static/images/reign-abarintosunsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(20, 20, 20, 0.95);
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.navbar li {
+    margin: 0 15px;
+}
+.navbar a {
+    color: #1DA1F2;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+.navbar a:hover {
+    color: #fff;
+}
+h1 {
+    font-size: 1.8em;
+    color: #1DA1F2;
+    margin-bottom: 20px;
+}
+input, button, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+}
+input, textarea {
+    background: #333;
+    color: #fff;
+}
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+input::placeholder, textarea::placeholder {
+    color: #888;
+}
+button {
+    background: #1DA1F2;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+button:hover {
+    background: #0c87d1;
+}
+.share-button {
+    background: #333;
+    color: #1DA1F2;
+    margin-top: 15px;
+}
+.share-button:hover {
+    background: #555;
+}
+.future-echoes {
+    background: rgba(29, 161, 242, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+.canvas-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+a {
+    color: #1DA1F2;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+a:hover {
+    text-decoration: underline;
+}
+.success {
+    color: #00ff00;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+.error {
+    color: #ff4444;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 20px auto;
+    background-size: cover;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.star-glow {
+    background: radial-gradient(circle, #1DA1F2, #0c87d1);
+    animation: glow 1.5s ease-in-out infinite;
+}
+.nebula-cloud {
+    background: linear-gradient(45deg, #4b0082, #1DA1F2);
+    animation: pulse 3s ease-in-out infinite;
+}
+.quantum-particle {
+    background: radial-gradient(circle, #fff, #1DA1F2);
+    animation: spin 2s linear infinite;
+}
+@keyframes glow {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+p {
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+.fear-section, .ptsd-section, .persona-section, .future-echoes {
+    background: rgba(29, 161, 242, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+.section-title {
+    color: #1DA1F2;
+    font-weight: bold;
+}

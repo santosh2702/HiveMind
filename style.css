@@ -1,0 +1,73 @@
+body {
+    background: #000 url('static/images/reign-abarintosunsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #00ffcc;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    font-size: 2.5em;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #ff00ff;
+}
+input, button {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 255, 204, 0.2);
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+}
+button {
+    background: #ff00ff;
+    cursor: pointer;
+}
+button:hover {
+    background: #00ffcc;
+}
+a {
+    color: #ff00ff;
+    text-decoration: none;
+}
+a:hover {
+    color: #00ffcc;
+}
+.success { color: #00ff00; }
+.error { color: #ff0000; }
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px auto;
+    background-size: cover;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.star-glow {
+    background: radial-gradient(circle, #ffeb3b, #ff9800);
+    animation: glow 1.5s ease-in-out infinite;
+}
+.nebula-cloud {
+    background: linear-gradient(45deg, #4b0082, #00b7eb);
+    animation: pulse 3s ease-in-out infinite;
+}
+.quantum-particle {
+    background: radial-gradient(circle, #00ff00, #000);
+    animation: spin 2s linear infinite;
+}
+@keyframes glow {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

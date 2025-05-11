@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HiveMind - Dream Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('dream') }}">Dream Analysis</a></li>
+            <li><a href="{{ url_for('resonance') }}">Resonance Map</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Explore Your Dreams</h1>
+        <form method="POST">
+            <textarea name="dream" placeholder="Describe your dream..." required></textarea>
+            <button type="submit">Analyze Dream</button>
+        </form>
+        {% if dream %}
+            <p><span class="section-title">Dream:</span> <span class="dream-text">{{ dream }}</span></p>
+            <p><span class="section-title">Emotional Tone:</span> <span class="tone-text">{{ emotional_tone }}</span></p>
+            <p><span class="section-title">Themes:</span> <span class="themes-text">{{ themes | join(', ') }}</span></p>
+            <p><span class="section-title">Symbolic Continuation:</span> {{ continuation }}</p>
+            <p><span class="section-title">Resonance Score:</span> {{ resonance_score }}%</p>
+            <p><span class="section-title">Vision:</span> {{ sensory_vision }}</p>
+            <p><span class="section-title">Feel:</span> {{ sensory_feel }}</p>
+            <p><span class="section-title">Sound:</span> {{ sensory_sound }}</p>
+            <div class="fear-section">
+                <p><span class="section-title">Dark Fears:</span> <span class="fears-text">{{ fears | join(', ') or 'No fears detected yet. Try describing intense dreams.' }}</span></p>
+            </div>
+            <div class="ptsd-section">
+                <p><span class="section-title">PTSD Indicator:</span> <span class="ptsd-text">{{ ptsd_indicator or 'No PTSD indicators detected. Add more dreams to analyze patterns.' }}</span></p>
+                <p><span class="section-title">Coping Suggestion:</span> {{ coping_suggestion }}</p>
+            </div>
+            <div class="persona-section">
+                <p><span class="section-title">Cosmic Persona:</span> <span class="persona-text">{{ traits | join(', ') or 'No traits detected yet. Share more dreams/moods to reveal your inner self.' }}</span></p>
+                <p><span class="section-title">Description:</span> <span class="description-text">{{ cosmic_description | join('; ') }}</span></p>
+            </div>
+            <div class="future-echoes">
+                <p><span class="section-title">Future Echoes:</span> {{ future_echo }}</p>
+            </div>
+            <button class="share-button" onclick="shareInsight()">Share Cosmic Insight</button>
+        {% endif %}
+        <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+    </div>
+</body>
+</html>

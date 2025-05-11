@@ -1,6 +1,6 @@
 # 🌌 HiveMind
 
-*A cosmic mood and dream analysis app with X-inspired UI, avatars, and human input-driven insights.*
+*A cosmic mood and dream analysis app: avatars, and human input-driven insights.*
 
 ---
 

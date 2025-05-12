@@ -1,0 +1,16 @@
+name: hivemind
+description: A cosmic mood and dream analysis app.
+version: 1.0.0
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.5
+  fl_chart: ^0.55.2
+  shared_preferences: ^2.0.15
+  url_launcher: ^6.1.10
+assets:
+  - assets/space.jpg
+flutter:
+  uses-material-design: true

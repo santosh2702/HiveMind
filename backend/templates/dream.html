@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HiveMind - Dream Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <canvas id="galaxy"></canvas>
+    <div class="container visible">
+        <h1>Dream Resonance Engine</h1>
+        <nav>
+            <a href="/dashboard">Mood</a>
+            <a href="/dream">Dream</a>
+            <a href="/resonance">Resonance Map</a>
+            <a href="/logout">Logout</a>
+        </nav>
+        <h2>Enter Your Dream</h2>
+        <form method="POST" id="dream-form">
+            <textarea name="dream" placeholder="What visions haunt your cosmos?" required></textarea>
+            <button type="submit">Analyze Dream</button>
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        {% if success %}
+            <p class="success">{{ success }}</p>
+        {% endif %}
+        <div id="dream-result">
+            {% if result %}
+                <div class="result">
+                    <h2>Dream Insight</h2>
+                    <p>Dream: {{ result.dream }}</p>
+                    <p>Tone: {{ result.tone }}</p>
+                    <p>Themes: {{ result.themes }}</p>
+                    <p>Fears: {{ result.fears }}</p>
+                    <p>PTSD: {{ result.ptsd }}</p>
+                    <p>Persona: {{ result.persona }}</p>
+                    <p>Description: {{ result.persona_desc }}</p>
+                    <p>Future Echoes: {{ result.future_echoes }}</p>
+                    <div class="share-buttons">
+                        <button class="share-x" data-insight="Dream: {{ result.dream }} - Tone: {{ result.tone }} - Persona: {{ result.persona }}">Share on X</button>
+                        <button class="share-instagram" data-insight="Dream: {{ result.dream }} - Tone: {{ result.tone }} - Persona: {{ result.persona }}">Share on Instagram</button>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <h2>Your Dreams</h2>
+        <div id="dreams"></div>
+    </div>
+    <script src="/static/lib/three.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

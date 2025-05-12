@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}HiveMind - Dashboard{% endblock %}
+{% block content %}
+    <h1>HiveMind Dashboard</h1>
+    <div class="text-end mb-3">
+        <a href="/logout" class="btn btn-secondary">Logout</a>
+    </div>
+    <ul class="nav nav-tabs" id="dashboardTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link {% if active_tab == 'mood' %}active{% endif %}" id="mood-tab" data-bs-toggle="tab" data-bs-target="#mood" type="button" role="tab" aria-controls="mood" aria-selected="{% if active_tab == 'mood' %}true{% else %}false{% endif %}">Mood</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link {% if active_tab == 'dream' %}active{% endif %}" id="dream-tab" data-bs-toggle="tab" data-bs-target="#dream" type="button" role="tab" aria-controls="dream" aria-selected="{% if active_tab == 'dream' %}true{% else %}false{% endif %}">Dream</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link {% if active_tab == 'resonance' %}active{% endif %}" id="resonance-tab" data-bs-toggle="tab" data-bs-target="#resonance" type="button" role="tab" aria-controls="resonance" aria-selected="{% if active_tab == 'resonance' %}true{% else %}false{% endif %}">Resonance Map</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="dashboardTabContent">
+        <div class="tab-pane fade {% if active_tab == 'mood' %}show active{% endif %}" id="mood" role="tabpanel" aria-labelledby="mood-tab">
+            <h2 class="mt-4">Log Your Mood</h2>
+            <form method="POST" id="mood-form">
+                <input type="hidden" name="tab" value="mood">
+                <div class="mb-3">
+                    <input type="text" name="mood" placeholder="What's your mood?" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit Mood</button>
+            </form>
+            {% if error and active_tab == 'mood' %}
+                <p class="error mt-3">{{ error }}</p>
+            {% endif %}
+            {% if success and active_tab == 'mood' %}
+                <p class="success mt-3">{{ success }}</p>
+            {% endif %}
+            <h2 class="mt-4">Your Moods</h2>
+            <div id="moods"></div>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'dream' %}show active{% endif %}" id="dream" role="tabpanel" aria-labelledby="dream-tab">
+            <h2 class="mt-4">Enter Your Dream</h2>
+            <form method="POST" id="dream-form">
+                <input type="hidden" name="tab" value="dream">
+                <div class="mb-3">
+                    <textarea name="dream" placeholder="Describe your dream..." class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Analyze Dream</button>
+            </form>
+            {% if error and active_tab == 'dream' %}
+                <p class="error mt-3">{{ error }}</p>
+            {% endif %}
+            {% if success and active_tab == 'dream' %}
+                <p class="success mt-3">{{ success }}</p>
+            {% endif %}
+            {% if result %}
+                <div class="result mt-4">
+                    <h2>Dream Insight</h2>
+                    <p>Dream: {{ result.dream }}</p>
+                    <p>Tone: {{ result.tone }}</p>
+                    <p>Themes: {{ result.themes }}</p>
+                    <p>Fears: {{ result.fears }}</p>
+                    <p>PTSD: {{ result.ptsd }}</p>
+                    <p>Persona: {{ result.persona }}</p>
+                    <p>Description: {{ result.persona_desc }}</p>
+                    <p>Future Echoes: {{ result.future_echoes }}</p>
+                    <div class="share-buttons">
+                        <button class="share-x" data-insight="Dream: {{ result.dream }} - Tone: {{ result.tone }} - Persona: {{ result.persona }}">Share on X</button>
+                        <button class="share-instagram" data-insight="Dream: {{ result.dream }} - Tone: {{ result.tone }} - Persona: {{ result.persona }}">Share on Instagram</button>
+                    </div>
+                </div>
+            {% endif %}
+            <h2 class="mt-4">Your Dreams</h2>
+            <div id="dreams"></div>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'resonance' %}show active{% endif %}" id="resonance" role="tabpanel" aria-labelledby="resonance-tab">
+            <h2 class="mt-4">Resonance Map</h2>
+            <canvas id="resonanceMap"></canvas>
+            <script id="mapData">{{ map_data | safe }}</script>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="/static/lib/chart.min.js"></script>
+    <script src="/static/script.js"></script>
+{% endblock %}

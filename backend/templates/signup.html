@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}HiveMind - Signup{% endblock %}
+{% block content %}
+    <h1>Signup</h1>
+    <form method="POST" class="mt-4">
+        <div class="mb-3">
+            <input type="text" name="username" placeholder="Username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <input type="password" name="password" placeholder="Password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Signup</button>
+    </form>
+    {% if error %}
+        <p class="error mt-3">{{ error }}</p>
+    {% endif %}
+    <p class="text-center mt-3"><a href="/login">Already have an account?</a></p>
+{% endblock %}

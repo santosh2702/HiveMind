@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HiveMind - Resonance Map</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <canvas id="galaxy"></canvas>
+    <div class="container visible">
+        <h1>Resonance Map</h1>
+        <nav>
+            <a href="/dashboard">Mood</a>
+            <a href="/dream">Dream</a>
+            <a href="/resonance">Resonance Map</a>
+            <a href="/logout">Logout</a>
+        </nav>
+        <canvas id="resonanceMap"></canvas>
+        <script id="mapData">{{ map_data | safe }}</script>
+        <script src="/static/lib/chart.min.js"></script>
+        <script src="/static/lib/three.min.js"></script>
+        <script src="/static/script.js"></script>
+    </div>
+</body>
+</html>
